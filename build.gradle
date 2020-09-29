@@ -15,7 +15,7 @@ configurations {
         compile.extendsFrom(provided)
     }
 
-    build.dependsOn("signJar")
+    /*build.dependsOn("signJar")*/
 }
 
 repositories {
@@ -32,9 +32,14 @@ repositories {
         name = "spongepowered"
         url = "https://repo.spongepowered.org/maven"
     }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
+    compile name: "forge-1.15.2-31.2.36"
+    compile name: "forgespi-3.0.0"
     provided("com.google.code.findbugs:jsr305:3.0.2")
     provided("cpw.mods:modlauncher:5.1.2") {
         exclude(module: "asm-analysis")
